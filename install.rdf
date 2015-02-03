@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RDF xmlns="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:em="http://www.mozilla.org/2004/em-rdf#">
+    <Description about="urn:mozilla:install-manifest">
+        <em:type>2</em:type> <!-- 2 : Extension -->
+        <em:id>taskybird@example.com</em:id>
+        <em:version>0.1pre121</em:version>
+        <em:name>Taskybird</em:name>
+        <em:description>Extension for integration between Wrike and Thunderbird. Adds task-centric message headers such as &#34;Responsible&#34; and communicates them to a task flow server.</em:description>
+        <em:creator>Axel Grude</em:creator>
+        <em:developer>Alex (Alino) Sadovsky</em:developer>
+        <em:targetApplication>
+            <Description>
+                <!-- Thunderbird -->
+                <em:id>{3550f703-e582-4d05-9a08-453d09bdfdc6}</em:id>
+                <em:minVersion>20.0</em:minVersion>
+                <em:maxVersion>35.0</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        <em:targetApplication>
+            <Description>
+                <!-- SeaMonkey -->
+                <em:id>{92650c4d-4b8e-4d2a-b7eb-24ecf4f6b63a}</em:id>
+                <em:minVersion>2.0</em:minVersion>
+                <em:maxVersion>2.32</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        <em:targetApplication>
+            <Description>
+								<!-- Postbox  -->
+                <em:id>postbox@postbox-inc.com</em:id>
+                <em:minVersion>2.0.0</em:minVersion>
+                <em:maxVersion>3.*</em:maxVersion>
+            </Description>
+        </em:targetApplication>
+        <!-- Postbox  -->				
+        <em:optionsURL>chrome://taskybird/content/options.xul</em:optionsURL>
+        <em:aboutURL>chrome://taskybird/content/about.xul</em:aboutURL>
+        <em:iconURL>chrome://taskybird/skin/taskybird_32.png</em:iconURL>
+        <em:icon64URL>chrome://taskybird/skin/taskybird_64.png</em:icon64URL>
+				
+    </Description>
+</RDF>

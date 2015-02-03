@@ -1,0 +1,16 @@
+<!ENTITY taskybird.label "Taskybird Menu">
+<!ENTITY taskybird.context.label "Taskybird">
+<!ENTITY taskybird.context.accesskey "T">
+<!ENTITY taskybird.context.status.label "Set Status">
+<!ENTITY taskybird.context.status.accesskey "S">
+<!ENTITY taskybird.context.assign.label "Assign to...">
+<!ENTITY taskybird.context.assign.accesskey "A">
+<!ENTITY taskybirdToolbarButton.label "Taskybird">
+<!ENTITY taskybirdToolbarButton.tooltip "Taskybird Preferences">
+<!ENTITY taskybirdSidebar.label "Taskybird">
+<!ENTITY taskyBird.header.responsible "Responsible">
+<!ENTITY taskyBird.header.responsible.tooltip "Sort by Responsible">
+<!ENTITY taskyBird.header.assigner "Assigner">
+<!ENTITY taskyBird.header.assigner.tooltip "Sort by Assigner">
+<!ENTITY taskyBird.header.taskStatus "Task">
+<!ENTITY taskyBird.header.taskStatus.tooltip "Sort by Task Status">

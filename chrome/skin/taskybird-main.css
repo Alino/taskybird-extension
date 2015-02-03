@@ -1,0 +1,79 @@
+
+#taskybird-hello
+{
+}
+
+#taskybird-toolbar-button
+{
+  list-style-image: url("chrome://taskybird/skin/tasky-button.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+
+#taskybird-online
+{
+  list-style-image: url("chrome://taskybird/skin/online.png");
+  -moz-image-region: rect(0px 24px 24px 0px);
+}
+
+#taskybird-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 24px 48px  0px);
+}
+[iconsize="small"] #taskybird-toolbar-button
+{
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+[iconsize="small"] #taskybird-toolbar-button:hover
+{
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+
+#context-taskybird, #context-taskybird-postbox {
+  list-style-image: url("chrome://taskybird/skin/tasky-button.png");
+  -moz-image-region: rect( 0px 40px 16px 24px);
+}
+#context-taskybird:hover {
+  -moz-image-region: rect(24px 40px 40px 24px);
+}
+
+#context-taskybird-setstatus-0,
+#context-taskybird-setstatus-1,
+#context-taskybird-setstatus-2,
+#context-taskybird-setstatus-3,
+#context-taskybird-setstatus-4,
+#context-taskybird-setstatus-5 {
+  -moz-image-region: rect( 0px 16px 16px 0px);
+}
+
+/* avoid hiding the icon for "unchecked" item */
+#context-taskybird menuitem[type="radio"]:not([checked]) > .menu-iconic-left > .menu-iconic-icon 
+{
+	display: block;
+}
+#context-taskybird menuitem[checked] {
+	text-decoration: underline;
+}
+
+#context-taskybird-setstatus-0 {
+	list-style-image: url("chrome://taskybird/skin/status/fugue-not-assigned.png");
+}
+
+#context-taskybird-setstatus-1 { 
+	list-style-image: url("chrome://taskybird/skin/status/fugue-unread.png");
+}
+
+#context-taskybird-setstatus-2 { 
+	list-style-image: url("chrome://taskybird/skin/status/fugue-read.png");
+}
+
+#context-taskybird-setstatus-3 {
+	list-style-image: url("chrome://taskybird/skin/status/fugue-waiting.png");
+}
+
+#context-taskybird-setstatus-4 {
+	list-style-image: url("chrome://taskybird/skin/status/fugue-progress.png");
+}
+
+#context-taskybird-setstatus-5 {
+	list-style-image: url("chrome://taskybird/skin/status/fugue-complete.png");
+}

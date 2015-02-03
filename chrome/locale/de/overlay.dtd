@@ -1,0 +1,16 @@
+<!ENTITY taskybird.label "Taskybird Menü">
+<!ENTITY taskybird.context.label "Taskybird">
+<!ENTITY taskybird.context.accesskey "T">
+<!ENTITY taskybird.context.status.label "Status ändern">
+<!ENTITY taskybird.context.status.accesskey "S">
+<!ENTITY taskybird.context.assign.label "Zuständig...">
+<!ENTITY taskybird.context.assign.accesskey "Z">
+<!ENTITY taskybirdToolbarButton.label "Taskybird">
+<!ENTITY taskybirdToolbarButton.tooltip "Taskybird Einstellungen">
+<!ENTITY taskybirdSidebar.label "Taskybird">
+<!ENTITY taskyBird.header.responsible "Verantwortlich">
+<!ENTITY taskyBird.header.responsible.tooltip "Nach 'Verantwortlich' Feld sortieren">
+<!ENTITY taskyBird.header.assigner "Planer">
+<!ENTITY taskyBird.header.assigner.tooltip "Sortieren nach wer die Aufgabeübergeben hat">
+<!ENTITY taskyBird.header.taskStatus "Aufgabe">
+<!ENTITY taskyBird.header.taskStatus.tooltip "Sortieren nach Aufgaben-Status">

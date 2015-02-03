@@ -1,0 +1,19 @@
+<!ENTITY prefwindow.title "Taskybird Einstellungen">
+<!ENTITY pane1.title "Allgemein">
+<!ENTITY chkDebug.label "Debug Modus">
+<!ENTITY chkDebug.accesskey "D">
+<!ENTITY intpref.label "An Integer Preference">
+<!ENTITY intpref.accesskey "I">
+<!ENTITY stringpref.label "A String Preference">
+<!ENTITY stringpref.accesskey "S">
+<!ENTITY taskybird.options.versionnumber.tooltip "Rechtsklick für Versionsgeschichte">
+<!ENTITY taskybird.label.aboutLink "TaskyBird Website...">
+<!ENTITY taskybird.account.userName "Benutzername">
+<!ENTITY taskybird.account.userName.accesskey "B">
+<!ENTITY taskybird.account.password "Passwort">
+<!ENTITY taskybird.account.password.accesskey "P">
+<!ENTITY taskybird.account.installationId "Installations Id">
+<!ENTITY taskybird.account.installationId.accesskey "I">
+<!ENTITY taskybird.account.btn.sync "Mit Server synchronisieren">
+<!ENTITY taskybird.tab.general  "Allgemeine Einstellungen" >
+<!ENTITY taskybird.tab.account  "Kontoeinstellungen" >

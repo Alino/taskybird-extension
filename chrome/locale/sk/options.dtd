@@ -1,0 +1,10 @@
+<!ENTITY prefwindow.title "">
+<!ENTITY pane1.title "">
+<!ENTITY chkDebug.label "">
+<!ENTITY chkDebug.accesskey "">
+<!ENTITY intpref.label "An Integer Preference">
+<!ENTITY intpref.accesskey "I">
+<!ENTITY stringpref.label "A String Preference">
+<!ENTITY stringpref.accesskey "S">
+<!ENTITY taskybird.options.versionnumber.tooltip "">
+<!ENTITY taskybird.label.aboutLink "">

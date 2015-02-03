@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://taskybird/skin/taskybird-main.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://taskybird/locale/overlay.dtd">
+<overlay id="taskybird-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <script type="application/x-javascript;version=1.7" src="taskybird.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-utils.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-interface.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-db.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-sync.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-preferences.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-api.js"/>
+  <script type="application/x-javascript;version=1.7" src="socket.io.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-sockets.js"/>
+
+  
+
+
+
+
+
+<div style="visibility: hidden;">
+<menu>
+  <menupopup id="taskybirddevelopers" style="visibility: visible;">
+  </menupopup>
+</menu>
+
+<menu>
+  <menupopup id="taskybirddesigners"  style="visibility: visible;">
+  </menupopup>
+</menu>
+
+<menu>
+  <menupopup id="taskybirdmanagers"  style="visibility: visible;">
+  </menupopup>
+</menu>
+</div>
+
+
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="taskybird-strings" src="chrome://taskybird/locale/overlay.properties"/>
+  </stringbundleset>
+  
+  <toolbarpalette id="MailToolbarPalette">
+    <toolbarbutton id="taskybird-toolbar-button"
+	               class="toolbarbutton-1 chromeclass-toolbar-additional"
+                   label="&taskybirdToolbarButton.label;" 
+				   tooltiptext="&taskybirdToolbarButton.tooltip;"
+                   oncommand="taskyBird.onToolbarButtonCommand();"
+				   context="dummy"
+				   oncontextmenu="taskyBird.showOptions();"
+				   />
+				   <onlineStatus id="taskybird-online">
+				   </onlineStatus>
+  </toolbarpalette>
+
+
+  
+  <!-- Thunderbird, Seamonkey -->
+  <popup id="mailContext">
+       <menu id="context-taskybird"
+             label="&taskybird.context.label;"
+             accesskey="&taskybird.context.accesskey;"
+             insertbefore="mailContext-tags"
+			 class="menu-iconic">
+	<!-- START - MOVE THIS NODE IN POSTBOX -->
+	<menupopup id="taskybird-popup">
+	<!--oncommand="taskyBird.onMenuItemCommand(this, event, 'status');"-->
+		<menu id="context-taskybird-setstatus"
+				  label="&taskybird.context.status.label;"
+				  accesskey="&taskybird.context.status.accesskey;"
+				  
+				  class="menu-iconic">
+				  
+		  <menupopup id="context-taskybird-statuspopup" 
+					 tagName="taskyBirdStatus"
+					 onpopupshowing="taskyBird.Interface.showStatusPopup(this, event);">
+			<menuitem id="context-taskybird-status-none"
+					  class="menuitem-iconic"
+					  value=""
+					  type="radio"
+					  name="taskyStatus"
+					  />
+			<menuitem id="context-taskybird-setstatus-1"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 1);"
+					  class="menuitem-iconic"
+					  value="1"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+			<menuitem id="context-taskybird-setstatus-2"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 2);"
+					  class="menuitem-iconic"
+					  value="2"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+			<menuitem id="context-taskybird-setstatus-3"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 3);"
+					  class="menuitem-iconic"
+					  value="3"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+			<menuitem id="context-taskybird-setstatus-4"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 4);"
+					  class="menuitem-iconic"
+					  value="4"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+			<menuitem id="context-taskybird-setstatus-5"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 5);"
+					  class="menuitem-iconic"
+					  value="5"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+		 	<menuitem id="context-taskybird-setstatus-6"
+					  oncommand="taskyBird.Interface.setStatusFromPopup(this, event, 6);"
+					  class="menuitem-iconic"
+					  value="6"
+					  type="radio"
+					  name="taskyStatus"
+					  />
+		  </menupopup>						  
+		</menu>
+		<menu id="context-taskybird-setassignee"
+				  label="Assign to..."				  
+				  class="menu-iconic">
+		<menupopup id="context-taskybird-assignpopup"
+					 tagName="taskyBirdAssign">
+
+
+		</menupopup>
+	</menu>
+<!--						  
+		<menuitem id="context-taskybird-delegate"
+				  label="&taskybird.context.delegate.label;"
+				  accesskey="&taskybird.context.delegate.accesskey;"
+				  oncommand="taskyBird.onMenuItemCommand(this, event, 'delegate');"
+				  class="menuitem-iconic"
+				  /> -->
+	</menupopup>
+	<!-- END -->
+		 </menu>
+  </popup>
+  <!-- Postbox -->
+  <popup id="threadPaneContext">
+       <menu id="context-taskybird-postbox" 
+             label="&taskybird.context.label;"
+             accesskey="&taskybird.context.accesskey;"
+             insertbefore="threadPaneContext-tag"
+			 class="menu-iconic">
+		</menu>
+  </popup>
+  
+  
+  <menupopup id="menu_ToolsPopup">
+    <menuitem id="taskybird-hello" 
+	          label="&taskybird.label;"
+              oncommand="taskyBird.onMenuItemCommand(event);"/>
+  </menupopup>
+  
+  <tree id="threadTree">
+    <treecols id="threadCols">
+		<splitter class="tree-splitter" />
+		<treecol id="colResponsible" 
+				 persist="hidden ordinal width" 
+				 currentView="unthreaded" 
+				 flex="2"
+				 label="&taskyBird.header.responsible;" 
+				 tooltiptext="&taskyBird.header.responsible.tooltip;" />
+		<treecol id="colAssigner" 
+				 persist="hidden ordinal width" 
+				 currentView="unthreaded" 
+				 flex="2"
+				 label="&taskyBird.header.assigner;" 
+				 tooltiptext="&taskyBird.header.assigner.tooltip;" />
+		<treecol id="colTaskStatus" 
+				 persist="hidden ordinal width" 
+				 currentView="unthreaded" 
+				 flex="0"
+				 label="&taskyBird.header.taskStatus;" 
+				 tooltiptext="&taskyBird.header.taskStatus.tooltip;" />
+    </treecols>
+  </tree>
+  <!-- quick filter bar, click() event and a doCommand interface! -->
+  <hbox id="quick-filter-bar-main-bar" align="center">
+	  <toolbarbutton id="taskyBird-filter" type="checkbox" crop="none" 
+					 minwidth="16" 
+					 label="TaskyBird" 
+					 tooltiptext="Show only Messages with tasks" 
+					 checkState="0"/>
+  </hbox>  
+    
+  
+  <!--- new stuff - AG need to read up on this -->
+  <menupopup id="viewSidebarMenu">
+    <menuitem observes="viewSidebar_taskybird"/>
+  </menupopup>
+  <broadcasterset id="mainBroadcasterSet">
+    <broadcaster id="viewSidebar_taskybird"
+                 label="&taskybirdSidebar.label;"
+                 autoCheck="false"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://taskybird/content/ff-sidebar.xul"
+                 sidebartitle="&taskybirdSidebar.label;"
+                 oncommand="toggleSidebar('viewSidebar_taskybird');"/>
+  </broadcasterset>
+
+  
+</overlay>

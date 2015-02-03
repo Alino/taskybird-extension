@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://taskybird/skin/options.css" title="TaskyBirdOptions" type="text/css"?>
+<!DOCTYPE prefwindow SYSTEM "chrome://taskybird/locale/options.dtd">
+
+<prefwindow id="taskybird-preferences" 
+            xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+			title="&prefwindow.title;"
+			onload="taskyBird.Options.load();">
+
+  <script type="application/x-javascript;version=1.7" src="taskybird.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-utils.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-options.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-db.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-sync.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-api.js"/>
+  <script type="application/x-javascript;version=1.7" src="taskybird-preferences.js"/>
+
+  <prefpane 
+	id="taskyPane1" 
+	label="&pane1.title;">
+    <preferences>
+      <preference id="debug" name="extensions.taskybird.debug" type="bool"/>
+      <preference id="intpref1" name="extensions.taskybird.intpref" type="int"/>
+	  
+	  <!-- note that this is only an ASCII string - use unichar for unicode strings -->
+	  <preference id="serverUrl" name="extensions.taskybird.server.url" type="string"/>
+      <preference id="userName" name="extensions.taskybird.account.user" type="string"/>
+      <preference id="password" name="extensions.taskybird.account.password" type="string"/>
+    </preferences>
+	
+	<hbox id="taskyBird-header-container">
+		<vbox>
+		  <spacer flex="1"/>
+		  <image id="taskyBird-options-icon" src="chrome://taskybird/skin/taskybird_64.png" flex="0"/>
+		  <spacer flex="1"/>
+		</vbox>
+		<hbox id="taskyBird-options-header" class="paneSelector" flex="50">
+		  <label id="taskyBird-options-title" 
+				 value="TaskyBird"
+				 flex="0"/>
+			<spacer flex="2" />	 
+			<label id="taskyBird-options-version" 
+				   oncontextmenu="taskyBird.Util.showVersionHistory(true);return false;" 
+				   tooltiptext="&taskybird.options.versionnumber.tooltip;"
+				   value="0.1"/>
+		</hbox>
+	</hbox>
+	
+	
+	<tabbox orient="vertical" flex="6" id="taskyBird-Options-Tabbox">
+		<tabs>
+			<tab label="&taskybird.tab.general;" id="taskyBird-Options-general-tab" />
+			<tab label="&taskybird.tab.account;" id="taskyBird-Options-accounts-tab" />
+			<tab label="Tests" id="taskyBird-Options-Test-tab" />
+			<tab label="Tests 2" id="taskyBird-Options-Test-tab2" />
+		</tabs>
+
+		<tabpanels>
+			<tabpanel id="taskyBird-Options-general"
+			          orient="vertical" 
+			          style="position:relative;">	
+					 
+				<hbox>
+					<label accesskey="&intpref.accesskey;" control="textintpref">&intpref.label;</label>
+					<textbox id="textintpref" preference="intpref1"/>
+				</hbox>  
+				<hbox>
+					<label accesskey="&stringpref.accesskey;" control="textstringpref">&stringpref.label;</label>
+					<textbox id="textstringpref" preference="stringpref1"/>
+				</hbox>  
+				
+				<label id="btnAbout" 
+					   class="text-link" 
+					   tooltiptext="http://taskybird.dopice.sk/"
+					   onclick="taskyBird.Util.showHomePage();">&taskybird.label.aboutLink;</label>
+				<spacer />
+				<checkbox id="chkDebug" 
+				          preference="debug" 
+						  label="&chkDebug.label;" 
+						  accesskey="&chkDebug.accesskey;"
+						  context="dummy"
+						  oncontextmenu="taskyBird.Options.toggleBoolPreference(this,true);taskyBird.Options.showAboutConfig(this, 'taskybird.debug', true);return false;"
+						  />
+			</tabpanel>
+			
+			
+			<tabpanel id="taskyBird-Options-accounts"
+			          orient="vertical" 
+			          style="position:relative;">
+	         	<hbox>
+					<label accesskey="S" control="txtServerUrl">Server URL</label>
+					<textbox id="txtServerUrl" preference="serverUrl" flex="2"/>
+					<spacer flex="1"/>
+				</hbox>
+				<hbox>
+					<label accesskey="&taskybird.account.userName.accesskey;" control="txtUserName">&taskybird.account.userName;</label>
+					<textbox id="txtUserName" preference="userName" flex="2"/>
+					<spacer flex="1"/>
+				</hbox>  
+				<hbox>
+					<label accesskey="&taskybird.account.password.accesskey;" control="txtPassword">&taskybird.account.password;</label>
+					<textbox id="txtPassword" preference="password" flex="2" type="password" />
+					<spacer flex="1"/>
+				</hbox>  
+				<button label="&taskybird.account.btn.sync;" 
+				        onclick="taskyBird.Options.authenticate();"/>
+		    </tabpanel>
+
+			<tabpanel id="taskyBird-Options-Test"
+			          orient="vertical" 
+			          style="position:relative;">
+				<label>AJAX command</label>
+				<textbox id="AJAX-Post"></textbox>
+				<textbox id="AJAX-Response" 
+				         rows="6" 
+						 multiline="true"></textbox>
+				<hbox>
+				  <spacer flex="1" />
+				  <button id="btnAjaxTest" label="Send!" onclick="taskyBird.Options.send();"/>
+				</hbox>
+				
+		    </tabpanel>
+			<tabpanel id="taskyBird-Options-Test2"
+			          orient="vertical" 
+			          style="position:relative;">
+				<label>PostData</label>
+				<grid>
+				  <columns>
+				    <column flex="1" />
+				    <column flex="1" />
+				  </columns>
+					<rows>
+						<row>
+							<hbox><label>Message Id:</label><textbox id="AJAX-msgId"></textbox></hbox>
+							<hbox><label>User Id:</label><textbox id="AJAX-userId" type="number" class="numeric"></textbox></hbox>
+						</row>
+						<row>
+							<hbox><label>Status:</label><textbox id="AJAX-status" type="number" class="numeric"></textbox></hbox>
+							<hbox><label>Assigned By:</label><textbox id="AJAX-assigner" type="number" class="numeric"></textbox></hbox>
+						</row>
+					</rows>
+				</grid>
+				<hbox><label>Note:</label><textbox id="AJAX-note" flex="2"></textbox></hbox>
+				<textbox id="AJAX-Response2" 
+				         rows="6" 
+						 multiline="true"></textbox>
+				<hbox>
+				  <spacer flex="1" />
+				  <button id="btnAjaxTest0" label="Get Tasks" onclick="taskyBird.Sync.Test.test_GetTasks(document);"/>
+				  <button id="btnAjaxTest1" label="Test 1!" onclick="taskyBird.Sync.Test.test_1();"/>
+				  <button id="btnAjaxTest2" label="Test 2!" onclick="taskyBird.Sync.Test.test_2();"/>
+				  <button id="btnAjaxTest3" label="Test Form Values!" 
+					      onclick="taskyBird.Sync.Test.test_Form(document);"/>
+				</hbox>
+				
+		    </tabpanel>
+			
+		</tabpanels>
+	</tabbox>
+	
+	
+  </prefpane>
+</prefwindow>
